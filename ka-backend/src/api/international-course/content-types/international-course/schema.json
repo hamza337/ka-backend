@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "international_courses",
+  "info": {
+    "singularName": "international-course",
+    "pluralName": "international-courses",
+    "displayName": "InternationalCourse",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 50
+    },
+    "instructor": {
+      "type": "string",
+      "required": true,
+      "default": "Sir Syed Kazim Ali"
+    },
+    "courseFee": {
+      "type": "biginteger",
+      "required": true
+    },
+    "duration": {
+      "type": "string"
+    },
+    "deliveryMethod": {
+      "type": "string"
+    },
+    "classSize": {
+      "type": "string"
+    },
+    "oneOnOneCoaching": {
+      "type": "string"
+    },
+    "lecturesPerWeek": {
+      "type": "integer"
+    },
+    "lecturesLength": {
+      "type": "string"
+    },
+    "courseAvailability": {
+      "type": "string"
+    },
+    "targetAudience": {
+      "type": "text"
+    },
+    "courseOverview": {
+      "type": "text"
+    },
+    "courseOutline": {
+      "type": "richtext"
+    },
+    "courseLink": {
+      "type": "string"
+    },
+    "courseImage": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

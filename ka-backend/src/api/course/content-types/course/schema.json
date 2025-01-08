@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 50
+    },
+    "instructor": {
+      "type": "string",
+      "default": "Sir Syed Kazim Ali",
+      "required": true
+    },
+    "courseFee": {
+      "type": "biginteger",
+      "required": true
+    },
+    "duration": {
+      "type": "string"
+    },
+    "deliveryMethod": {
+      "type": "string"
+    },
+    "classSize": {
+      "type": "string"
+    },
+    "oneOnOneCoaching": {
+      "type": "string"
+    },
+    "lecturesPerWeek": {
+      "type": "integer"
+    },
+    "lecturesLength": {
+      "type": "string"
+    },
+    "courseAvailability": {
+      "type": "string"
+    },
+    "targetAudience": {
+      "type": "text"
+    },
+    "courseOverview": {
+      "type": "text"
+    },
+    "courseOutline": {
+      "type": "richtext"
+    },
+    "courseLink": {
+      "type": "string"
+    }
+  }
+}
