@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "css_and_pms_essays",
+  "collectionName": "testimonials",
   "info": {
-    "singularName": "css-and-pms-essay",
-    "pluralName": "css-and-pms-essays",
-    "displayName": "cssAndPmsEssay",
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
+    "displayName": "testimonial",
     "description": ""
   },
   "options": {
@@ -12,30 +12,28 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30
+    },
+    "designation": {
       "type": "string",
       "required": true
     },
-    "content": {
-      "type": "richtext",
-      "required": true
-    },
-    "coverImage": {
+    "image": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
       ]
     },
-    "essayLink": {
-      "type": "string"
-    },
     "description": {
       "type": "string",
       "required": true,
-      "maxLength": 100
+      "maxLength": 325
     }
   }
 }

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_comments_experiences",
+  "info": {
+    "displayName": "Experiences",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "plateformType": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "startYear": {
+      "type": "biginteger"
+    },
+    "endYear": {
+      "type": "biginteger"
+    },
+    "present": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

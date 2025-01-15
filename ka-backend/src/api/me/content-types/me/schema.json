@@ -4,28 +4,52 @@
   "info": {
     "singularName": "me",
     "pluralName": "us",
-    "displayName": "Me"
+    "displayName": "Me",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "FullName": {
+    "Age": {
+      "type": "integer",
+      "required": true
+    },
+    "phone": {
       "type": "string",
-      "maxLength": 20,
-      "minLength": 3,
-      "default": "Syed Kazim Ali Agha"
+      "required": false,
+      "maxLength": 15
     },
-    "HeroImage": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "email": {
+      "type": "email"
     },
-    "HeroIntroduction": {
-      "type": "text"
+    "yearsOfExperience": {
+      "type": "integer"
+    },
+    "studentsTaughtWorldwide": {
+      "type": "biginteger"
+    },
+    "studentSuccessRate": {
+      "type": "integer"
+    },
+    "studentsRecommendHim": {
+      "type": "integer"
+    },
+    "comments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comments.what-pakistanis-says-about-him"
+    },
+    "education": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comments.education"
+    },
+    "experience": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comments.experiences"
     }
   }
 }

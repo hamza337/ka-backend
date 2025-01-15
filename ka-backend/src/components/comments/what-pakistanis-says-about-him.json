@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_comments_what_pakistanis_says_about_hims",
+  "info": {
+    "displayName": "whatPakistanisSaysAboutHim",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "comment": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "plateformName": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

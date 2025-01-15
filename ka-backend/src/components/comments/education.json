@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_comments_educations",
+  "info": {
+    "displayName": "Education",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Year": {
+      "type": "integer"
+    },
+    "degree": {
+      "type": "string"
+    },
+    "institute": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

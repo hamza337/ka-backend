@@ -4,7 +4,8 @@
   "info": {
     "singularName": "course",
     "pluralName": "courses",
-    "displayName": "Course"
+    "displayName": "Course",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,7 +15,7 @@
     "title": {
       "type": "string",
       "required": true,
-      "minLength": 50
+      "maxLength": 70
     },
     "instructor": {
       "type": "string",
@@ -46,9 +47,6 @@
     "courseAvailability": {
       "type": "string"
     },
-    "targetAudience": {
-      "type": "text"
-    },
     "courseOverview": {
       "type": "text"
     },
@@ -57,6 +55,17 @@
     },
     "courseLink": {
       "type": "string"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

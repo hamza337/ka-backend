@@ -438,6 +438,7 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
 export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
   collectionName: 'courses';
   info: {
+    description: '';
     displayName: 'Course';
     pluralName: 'courses';
     singularName: 'course';
@@ -452,6 +453,9 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     courseLink: Schema.Attribute.String;
     courseOutline: Schema.Attribute.RichText;
     courseOverview: Schema.Attribute.Text;
+    coverImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -470,11 +474,10 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     oneOnOneCoaching: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    targetAudience: Schema.Attribute.Text;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
-        minLength: 50;
+        maxLength: 70;
       }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -486,6 +489,7 @@ export interface ApiCssAndPmsEssayCssAndPmsEssay
   extends Struct.CollectionTypeSchema {
   collectionName: 'css_and_pms_essays';
   info: {
+    description: '';
     displayName: 'cssAndPmsEssay';
     pluralName: 'css-and-pms-essays';
     singularName: 'css-and-pms-essay';
@@ -499,6 +503,11 @@ export interface ApiCssAndPmsEssayCssAndPmsEssay
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
     essayLink: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -556,7 +565,7 @@ export interface ApiInternationalCourseInternationalCourse
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
-        minLength: 50;
+        maxLength: 70;
       }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -567,6 +576,7 @@ export interface ApiInternationalCourseInternationalCourse
 export interface ApiMeMe extends Struct.SingleTypeSchema {
   collectionName: 'us';
   info: {
+    description: '';
     displayName: 'Me';
     pluralName: 'us';
     singularName: 'me';
@@ -575,24 +585,32 @@ export interface ApiMeMe extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Age: Schema.Attribute.Integer & Schema.Attribute.Required;
+    comments: Schema.Attribute.Component<
+      'comments.what-pakistanis-says-about-him',
+      true
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    FullName: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 20;
-        minLength: 3;
-      }> &
-      Schema.Attribute.DefaultTo<'Syed Kazim Ali Agha'>;
-    HeroImage: Schema.Attribute.Media<'images'>;
-    HeroIntroduction: Schema.Attribute.Text;
+    education: Schema.Attribute.Component<'comments.education', true>;
+    email: Schema.Attribute.Email;
+    experience: Schema.Attribute.Component<'comments.experiences', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::me.me'> &
       Schema.Attribute.Private;
+    phone: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 15;
+      }>;
     publishedAt: Schema.Attribute.DateTime;
+    studentsRecommendHim: Schema.Attribute.Integer;
+    studentsTaughtWorldwide: Schema.Attribute.BigInteger;
+    studentSuccessRate: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    yearsOfExperience: Schema.Attribute.Integer;
   };
 }
 
@@ -627,6 +645,7 @@ export interface ApiStudentReviewStudentReview
   extends Struct.CollectionTypeSchema {
   collectionName: 'student_reviews';
   info: {
+    description: '';
     displayName: 'Student Review';
     pluralName: 'student-reviews';
     singularName: 'student-review';
@@ -648,9 +667,55 @@ export interface ApiStudentReviewStudentReview
       Schema.Attribute.Private;
     postedDate: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
+    reviewerDesignation: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 35;
+      }>;
     reviewerImage: Schema.Attribute.Media<'images' | 'files'>;
     reviewerName: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
+  collectionName: 'testimonials';
+  info: {
+    description: '';
+    displayName: 'testimonial';
+    pluralName: 'testimonials';
+    singularName: 'testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 325;
+      }>;
+    designation: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1174,6 +1239,7 @@ declare module '@strapi/strapi' {
       'api::me.me': ApiMeMe;
       'api::popup.popup': ApiPopupPopup;
       'api::student-review.student-review': ApiStudentReviewStudentReview;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

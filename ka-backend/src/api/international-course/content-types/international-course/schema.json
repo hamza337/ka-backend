@@ -15,7 +15,7 @@
     "title": {
       "type": "string",
       "required": true,
-      "minLength": 50
+      "maxLength": 70
     },
     "instructor": {
       "type": "string",
@@ -60,12 +60,13 @@
       "type": "string"
     },
     "courseImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
