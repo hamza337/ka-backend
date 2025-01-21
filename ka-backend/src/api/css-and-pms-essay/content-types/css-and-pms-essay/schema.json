@@ -36,6 +36,15 @@
       "type": "string",
       "required": true,
       "maxLength": 100
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaKeywords": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
     }
   }
 }

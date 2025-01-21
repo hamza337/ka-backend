@@ -66,6 +66,15 @@
         "videos",
         "audios"
       ]
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "metaKeywords": {
+      "type": "string"
     }
   }
 }

@@ -45,6 +45,15 @@
       "type": "string",
       "required": true,
       "maxLength": 35
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "metaKeywords": {
+      "type": "string"
     }
   }
 }

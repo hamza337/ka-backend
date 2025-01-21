@@ -390,6 +390,9 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.String;
+    metaKeywords: Schema.Attribute.String;
+    metaTitle: Schema.Attribute.String;
     postedOn: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String &
@@ -472,6 +475,9 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       'api::course.course'
     > &
       Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.String;
+    metaKeywords: Schema.Attribute.String;
+    metaTitle: Schema.Attribute.String;
     oneOnOneCoaching: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String &
@@ -515,6 +521,9 @@ export interface ApiCssAndPmsEssayCssAndPmsEssay
       'api::css-and-pms-essay.css-and-pms-essay'
     > &
       Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.String;
+    metaKeywords: Schema.Attribute.String;
+    metaTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -559,6 +568,9 @@ export interface ApiInternationalCourseInternationalCourse
       'api::international-course.international-course'
     > &
       Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.String;
+    metaKeywords: Schema.Attribute.String;
+    metaTitle: Schema.Attribute.String;
     oneOnOneCoaching: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     targetAudience: Schema.Attribute.Text;
@@ -617,6 +629,7 @@ export interface ApiMeMe extends Struct.SingleTypeSchema {
 export interface ApiPopupPopup extends Struct.CollectionTypeSchema {
   collectionName: 'popups';
   info: {
+    description: '';
     displayName: 'Popup';
     pluralName: 'popups';
     singularName: 'popup';
@@ -625,6 +638,8 @@ export interface ApiPopupPopup extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
     content: Schema.Attribute.Text & Schema.Attribute.Required;
     coverImage: Schema.Attribute.Media<'images' | 'files'>;
     createdAt: Schema.Attribute.DateTime;
@@ -634,6 +649,7 @@ export interface ApiPopupPopup extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::popup.popup'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    showButton: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -665,6 +681,9 @@ export interface ApiStudentReviewStudentReview
       'api::student-review.student-review'
     > &
       Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.String;
+    metaKeywords: Schema.Attribute.String;
+    metaTitle: Schema.Attribute.String;
     postedDate: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
     reviewerDesignation: Schema.Attribute.String &

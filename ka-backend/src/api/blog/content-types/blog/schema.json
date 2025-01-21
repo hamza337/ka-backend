@@ -34,6 +34,15 @@
     },
     "description": {
       "type": "text"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaKeywords": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
     }
   }
 }
